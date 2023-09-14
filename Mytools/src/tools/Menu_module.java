@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package B1;
+package tools;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Admin
  */
-public class Menu {
+public class Menu_module {
     Scanner sc =new Scanner(System.in);
     //Get an user choice as an integer
     public int getIntChoice(ArrayList List){
@@ -23,6 +23,22 @@ public class Menu {
         return Integer.parseInt(sc.nextLine());
     }
     public Object getObjectChoice(ArrayList<Object> list){
+        int n= list.size();
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i+1)+"-"+list.get(i));
+        }
+        System.out.println("--------------------------");
+        System.out.format("Please choose 1 to %d :",list.size());
+        int choiceNo = Integer.parseInt(sc.nextLine());
+        return (choiceNo >0 && choiceNo<=n) ? list.get(choiceNo-1): null;
+    }
+    public static void main(String[] args) {
+        // Kiếm thử menu chứa các chuỗi trả về số int
+        ArrayList<String> strList = new ArrayList();
+        strList.add("Operation 1");
+        strList.add("Operation 2");
+        strList.add("Operation 3");
+        Menu_module Menu_module = new Menu_module();
         
     }
 }
