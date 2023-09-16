@@ -1,12 +1,12 @@
 package tools;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
+import java.text.DateFormat;        //Lớp mô tả ngày tháng
+import java.text.ParseException;    //Lớp giúp dịnh dạnh ngày tháng
+import java.text.SimpleDateFormat;  //Lớp giúp định dạng ngày tháng
+import java.util.Calendar;          //Lớp mô tả lỗi khi phân tích string
+import java.util.Date;              //Lớp mô tả cho lịch trình nói chung
+import java.util.GregorianCalendar; //Lớp mô tả cho dương lịch ngày nay
+import java.util.Scanner;           //Lớp nhập dữ liệu
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
