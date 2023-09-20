@@ -100,8 +100,60 @@ public class mytools {
     }
     /** Reading a date using a pre-difine date format
      * dd-MM-yyyy / MM-dd-yyyy/ yyyy-MM-dd
-     * @param prompt: prompt will be printed befor inputting.
-     * @param pattern:
+     * @param prompt: prompt will be printed before inputting.
+     * @param pattern: pre-defined pattern of input
+     * @return an input string which matches the pattern
      */
+    public static Date readDate(String promt, String dateFormat){
+        String input;
+        Date d;
+        do {            
+            System.out.print(promt+": ");
+            input = sc.nextLine().trim();
+            d = parseDate(input, dateFormat);
+            if (d==null) {
+                System.out.println("Date data is not valid!");
+            }
+        } while (d==null);
+        return d;
+    }
+    // nhập ngày tháng sau một ngày cho trước
+    public static Date readDateAfter (String promt, String dateFormat, Date markerDate){
+        String input;
+        Date d;
+        boolean ok = false;
+        do {            
+            System.out.print(promt+": ");
+            input = sc.nextLine().trim();
+            d = parseDate(input, dateFormat);
+            ok = (d!= null && d.after(markerDate));
+            if (d==null) {
+                System.out.println("Date data is not valid");
+            }
+        } while (!ok);
+        return d;
+    }
+    //Nhập ngày tháng trước một ngày cho trước
+    public static Date readDateBefore(String promt, String dateFormat, Date markerDate){
+        String input;
+        Date d;
+        boolean ok = false;
+        do {            
+            System.out.print(promt+": ");
+            input = sc.nextLine().trim();
+            d = parseDate(input, dateFormat);
+            ok = (d!= null && d.before(markerDate));
+            if (d==null) {
+                System.out.println("Date data is not valid");
+            }
+        } while (!ok);
+        return d;
+    }
+    //Automattically generating an increasing code
+    //thí dụ sinh ra mã: P0000123 -> prefix: P, length=7, curNumber= 123
+    public static String generateCode (String prefix, int length, int curNumber){
+        String formatStr = "%0"+length+"d";//->%07d
+        return prefix + String.format(formatStr, curNumber);
+    }
 }
 
