@@ -153,7 +153,7 @@ public class mytools {
     //thí dụ sinh ra mã: P0000123 -> prefix: P, length=7, curNumber= 123
     public static String generateCode (String prefix, int length, int curNumber){
         String formatStr = "%0"+length+"d";//->%07d
-        return prefix + String.format(formatStr, curNumber);
+        return prefix + String.format(formatStr, curNumber);    
     }
 }
 
