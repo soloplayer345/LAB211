@@ -12,19 +12,19 @@ package program;
  * @author Admin
  */
 public class Vehicle {
-    private int id;
+    private String id;
     private String name;
     private String color;
-    private int price;
+    private String price;
     private String brand;
     private String type;
-    private int productYear;
+    private String productYear;
 
-    public Vehicle(int id) {
+    public Vehicle(String id) {
         this.id = id;
     }
 
-    public Vehicle(int id, String name, String color, int price, String brand, String type, int productYear) {
+    public Vehicle(String id, String name, String color, String price, String brand, String type, String productYear) {
         this.id = id;
         this.name = name;
         this.color = color;
@@ -34,11 +34,11 @@ public class Vehicle {
         this.productYear = productYear;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -58,11 +58,11 @@ public class Vehicle {
         this.color = color;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -82,12 +82,17 @@ public class Vehicle {
         this.type = type;
     }
 
-    public int getProductYear() {
+    public String getProductYear() {
         return productYear;
     }
 
-    public void setProductYear(int productYear) {
+    public void setProductYear(String productYear) {
         this.productYear = productYear;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ID_Vehicle:%s ,Name_Vehicle: %s ,color_Vehicle: %s ,price_Vehicle: %s ,brand_Vehicle: %s ,type: %s ,productYear: %s", id,name,color,price,brand,type,productYear);
     }
     
 }

@@ -9,5 +9,12 @@ package program;
  * @author Admin
  */
 public interface method {
-    
+    void add(Vehicle v);
+    void checkList(Vehicle v);
+    Vehicle update(Vehicle v);
+    void delete(Vehicle v);
+    Vehicle Search(Vehicle v);
+    void Display();
+    void Save();
+    void PrintAll();
 }

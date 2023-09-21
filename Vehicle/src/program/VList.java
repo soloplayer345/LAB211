@@ -10,7 +10,11 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class VList extends ArrayList<Vehicle> implements method{
+public class VList extends Vehicle implements method{
+
+    public VList(String id) {
+        super(id);
+    }
 
     @Override
     public void add(Vehicle v) {
