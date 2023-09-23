@@ -4,6 +4,10 @@
  */
 package program;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -48,7 +52,17 @@ public class VList extends Vehicle implements method{
 
     @Override
     public void Save() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            File file = new File("vehicle.dat");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileOutputStream fos=new FileOutputStream("vehicle.dat");
+            ObjectOutputStream oos=new ObjectOutputStream(fos);
+        } catch (IOException e) {
+             
+        } finally {
+        }
     }
 
     @Override
