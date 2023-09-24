@@ -12,25 +12,27 @@ import java.util.Scanner;
  * @author Admin
  */
 public class Menu_module {
-    Scanner sc =new Scanner(System.in);
+
+    Scanner sc = new Scanner(System.in);
+
     //Get an user choice as an integer
-    public int getIntChoice(ArrayList List){
-        for (int i=0; i<List.size();i++) {
-            System.out.format("%d-%s",i+1,List.get(i));
-            System.out.println("---------------------------------");
-            System.out.format("Please choose 1 to %d :",List.size());
+    public int getIntChoice(ArrayList List) {
+        for (int i = 0; i < List.size(); i++) {
+            System.out.format("%d-%s%n", i + 1, List.get(i));
         }
+        System.out.format("Please choose 1 to %d : ", List.size());
         return Integer.parseInt(sc.nextLine());
     }
-    public Object getObjectChoice(ArrayList<Object> list){
-        int n= list.size();
+
+    public Object getObjectChoice(ArrayList<Object> list) {
+        int n = list.size();
         for (int i = 0; i < list.size(); i++) {
-            System.out.println((i+1)+"-"+list.get(i));
+            System.out.println((i + 1) + "-" + list.get(i));
         }
         System.out.println("--------------------------");
-        System.out.format("Please choose 1 to %d :",list.size());
+        System.out.format("Please choose 1 to %d :", list.size());
         int choiceNo = Integer.parseInt(sc.nextLine());
-        return (choiceNo >0 && choiceNo<=n) ? list.get(choiceNo-1): null;
+        return (choiceNo > 0 && choiceNo <= n) ? list.get(choiceNo - 1) : null;
     }
 //    public static void main(String[] args) {
 //        // Kiếm thử menu chứa các chuỗi trả về số int
@@ -45,5 +47,3 @@ public class Menu_module {
 //        ArrayList<ite>
 //    }
 }
-
-

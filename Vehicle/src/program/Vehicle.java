@@ -11,7 +11,7 @@ package program;
  *
  * @author Admin
  */
-public class Vehicle {
+public class Vehicle implements Comparable{
     private String id;
     private String name;
     private String color;
@@ -93,6 +93,17 @@ public class Vehicle {
     @Override
     public String toString() {
         return String.format("ID_Vehicle:%s ,Name_Vehicle: %s ,color_Vehicle: %s ,price_Vehicle: %s ,brand_Vehicle: %s ,type: %s ,productYear: %s", id,name,color,price,brand,type,productYear);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Vehicle v =(Vehicle)obj;
+        return this.id.equals(v.id); 
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.id.compareTo(((Vehicle)o).id);
     }
     
 }

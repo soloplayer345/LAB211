@@ -14,15 +14,17 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class VList extends Vehicle implements method{
+public class VList extends ArrayList<Vehicle> implements method{
+    ArrayList<Vehicle> list = new ArrayList<>();
+    Vehicle v;
 
     public VList(String id) {
-        super(id);
+        super();
     }
 
     @Override
-    public void add(Vehicle v) {
-        
+    public void addList(Vehicle v) {
+        list.add(v);
     }
 
     @Override
@@ -59,9 +61,12 @@ public class VList extends Vehicle implements method{
             }
             FileOutputStream fos=new FileOutputStream("vehicle.dat");
             ObjectOutputStream oos=new ObjectOutputStream(fos);
+            oos.writeObject(list);
+            System.out.println("Saved!");
         } catch (IOException e) {
              
         } finally {
+            
         }
     }
 

@@ -9,7 +9,7 @@ package program;
  * @author Admin
  */
 public interface method {
-    void add(Vehicle v);
+    void addList(Vehicle v);
     void checkList(Vehicle v);
     Vehicle update(Vehicle v);
     void delete(Vehicle v);
