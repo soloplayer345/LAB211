@@ -1,5 +1,7 @@
 package program;
 
+import java.io.Serializable;
+
 
 
 /*
@@ -11,7 +13,7 @@ package program;
  *
  * @author Admin
  */
-public class Vehicle implements Comparable{
+public class Vehicle implements Comparable,Serializable {
     private String id;
     private String name;
     private String color;
@@ -19,6 +21,9 @@ public class Vehicle implements Comparable{
     private String brand;
     private String type;
     private String productYear;
+
+    public Vehicle() {
+    }
 
     public Vehicle(String id) {
         this.id = id;

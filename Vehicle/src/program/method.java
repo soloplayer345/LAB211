@@ -4,17 +4,19 @@
  */
 package program;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Admin
  */
 public interface method {
-    void addList(Vehicle v);
+    void addVehicle();
     void checkList(Vehicle v);
     Vehicle update(Vehicle v);
     void delete(Vehicle v);
     Vehicle Search(Vehicle v);
     void Display();
-    void Save();
+    public void Save(Vehicle v );
     void PrintAll();
 }
