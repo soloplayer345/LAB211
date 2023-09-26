@@ -14,9 +14,9 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class VList extends Vehicle implements method{
+public class Vmng extends Vehicle implements method{
 
-    public VList(String id) {
+    public Vmng(String id) {
         super(id);
     }
 
