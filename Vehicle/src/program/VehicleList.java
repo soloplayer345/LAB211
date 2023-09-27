@@ -15,33 +15,44 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static program.main.sc;
 
 /**
  *
  * @author Admin
  */
-public class Vmng extends Vehicle implements method {
+public class VehicleList implements method {
 
     ArrayList<Vehicle> list = new ArrayList<>();
     private int index;
 
-    public Vmng() {
-    }
-
-    public Vmng(String id, String name, String color, String price, String brand, String type, String productYear) {
-        super(id, name, color, price, brand, type, productYear);
+    public VehicleList() {
     }
 
     @Override
     public void addVehicle() {
-        Vehicle v = new Vehicle(getId(), getName(), getColor(), getPrice(), getBrand(), getType(), getProductYear());
-        Save(v);
+        System.out.print("enter id:");
+        String id = sc.nextLine();
+        System.out.print("enter name:");
+        String name = sc.nextLine();
+        System.out.print("enter color:");
+        String color = sc.nextLine();
+        System.out.print("enter price:");
+        String price = sc.nextLine();
+        System.out.print("enter brand:");
+        String brand = sc.nextLine();
+        System.out.print("enter type:");
+        String type = sc.nextLine();
+        System.out.print("enter productYear:");
+        String productYear = sc.nextLine();
+        Vehicle v = new Vehicle(id, name, color, price, brand, type, productYear);
+        SaveAdd(v);
     }
 
     @Override
     public void checkList(String id) {
         try {
-            boolean a=false;
+            boolean a = false;
             FileInputStream fis = null;
             ObjectInputStream ois = null;
             fis = new FileInputStream("vehicle.dat");
@@ -51,18 +62,18 @@ public class Vmng extends Vehicle implements method {
             for (Vehicle vehicle : list) {
                 if (vehicle.getId() != null && vehicle.getId().equals(id)) {
                     System.out.println(vehicle.toString());
-                    a=true;
-                }                
+                    a = true;
+                }
             }
-            if (a==false) {
+            if (a == false) {
                 System.out.println("Not found!");
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Vmng.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Vmng.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Vmng.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -72,8 +83,67 @@ public class Vmng extends Vehicle implements method {
     }
 
     @Override
-    public void delete(Vehicle v) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete() {
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {
+            fis = new FileInputStream("vehicle.dat");
+            ois = new ObjectInputStream(fis);
+            list = (ArrayList<Vehicle>) ois.readObject();
+        } catch (IOException ex) {
+            Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (ois != null) {
+                try {
+                    ois.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        System.out.print("enter id:");
+        String id = sc.nextLine();
+
+        Vehicle deletingVehicle = null;
+        for (Vehicle vehicle : list) {
+            if (vehicle.getId().equalsIgnoreCase(id)) {
+                deletingVehicle = vehicle;
+            }
+        }
+
+        if (deletingVehicle != null) {
+            FileOutputStream fos = null;
+            try {
+                list.remove(deletingVehicle);
+                fos = new FileOutputStream("vehicle.dat");
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                oos.writeObject(list);
+                oos.close();
+                fos.close();
+                System.out.println("Deleted!");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
     }
 
     @Override
@@ -87,7 +157,7 @@ public class Vmng extends Vehicle implements method {
     }
 
     @Override
-    public void Save(Vehicle v) {
+    public void SaveAdd(Vehicle v) {
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
@@ -117,10 +187,10 @@ public class Vmng extends Vehicle implements method {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Vmng.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (IOException ex) {
-            Logger.getLogger(Vmng.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (fis != null) {
 
@@ -136,7 +206,7 @@ public class Vmng extends Vehicle implements method {
                 try {
                     ois.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(Vmng.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -175,7 +245,7 @@ public class Vmng extends Vehicle implements method {
                 try {
                     ois.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(Vmng.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(VehicleList.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }

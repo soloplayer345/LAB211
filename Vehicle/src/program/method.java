@@ -4,8 +4,6 @@
  */
 package program;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Admin
@@ -14,9 +12,9 @@ public interface method {
     void addVehicle();
     void checkList(String id);
     Vehicle update(Vehicle v);
-    void delete(Vehicle v);
+    void delete();
     Vehicle Search(Vehicle v);
     void Display();
-    public void Save(Vehicle v );
+    public void SaveAdd(Vehicle v );
     void PrintAll();
 }

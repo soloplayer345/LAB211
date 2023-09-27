@@ -15,13 +15,15 @@ import lib.Menu_module;
 public class main {
 
     public static final Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
         boolean cont = true;
-
-    
+        VehicleList mng = new VehicleList();
+        //mng.Load();
         do {
             ArrayList<String> strList = new ArrayList();
             strList.add("add");
+            strList.add("delete");
             strList.add("check");
             strList.add("update");
             strList.add("search");
@@ -32,33 +34,21 @@ public class main {
             System.out.println("Your choose: " + intChoice);
             switch (intChoice) {
                 case 1:
-                   
-                    System.out.print("enter id:");
-                    String id=sc.nextLine();
-                    System.out.print("enter name:");
-                    String name=sc.nextLine(); 
-                    System.out.print("enter color:");
-                    String color=sc.nextLine();
-                    System.out.print("enter price:");
-                    String price=sc.nextLine();
-                    System.out.print("enter brand:");
-                    String brand=sc.nextLine();
-                    System.out.print("enter type:");
-                    String type=sc.nextLine();
-                    System.out.print("enter productYear:");
-                    String productYear=sc.nextLine();                  
-                    Vmng mng=new Vmng( id, name, color, price, brand, type, productYear);
+
                     mng.addVehicle();
                     System.out.println("List is added");
                     break;
-                    case 2:
+                case 2:
+                    mng.delete();
+                    break;
+                case 3:
                     System.out.print("enter id:");
-                    id=sc.nextLine();
-                    Vmng check =new Vmng();
+                    String id = sc.nextLine();
+                    VehicleList check = new VehicleList();
                     check.checkList(id);
                     break;
-                case 5:
-                    Vmng dis= new Vmng();
+                case 6:
+                    VehicleList dis = new VehicleList();
                     dis.Display();
                     break;
                 default:
