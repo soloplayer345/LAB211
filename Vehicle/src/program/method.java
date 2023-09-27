@@ -15,6 +15,6 @@ public interface method {
     void delete();
     Vehicle Search(Vehicle v);
     void Display();
-    public void SaveAdd(Vehicle v );
+    public void Save();
     void PrintAll();
 }
