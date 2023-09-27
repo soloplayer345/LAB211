@@ -51,6 +51,12 @@ public class main {
                     mng.addVehicle();
                     System.out.println("List is added");
                     break;
+                    case 2:
+                    System.out.print("enter id:");
+                    id=sc.nextLine();
+                    Vmng check =new Vmng();
+                    check.checkList(id);
+                    break;
                 case 5:
                     Vmng dis= new Vmng();
                     dis.Display();

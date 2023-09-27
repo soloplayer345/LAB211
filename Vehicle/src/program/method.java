@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public interface method {
     void addVehicle();
-    void checkList(Vehicle v);
+    void checkList(String id);
     Vehicle update(Vehicle v);
     void delete(Vehicle v);
     Vehicle Search(Vehicle v);
