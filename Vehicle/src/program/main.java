@@ -37,7 +37,8 @@ public class main {
                     mng.addVehicle();
                     System.out.println("List is added");
                 }
-                case "2" -> mng.delete();
+                case "2" ->
+                    mng.delete();
                 case "3" -> {
                     System.out.print("enter id:");
                     String checkid = sc.nextLine();
@@ -63,7 +64,11 @@ public class main {
                     VehicleList dis = new VehicleList();
                     dis.Display();
                 }
-                default -> cont = false;
+                case "7" -> {
+                    cont = false;
+                }
+                default ->
+                    cont = true;
 
             }
         } while (cont == true);
