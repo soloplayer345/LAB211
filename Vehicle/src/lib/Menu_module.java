@@ -24,15 +24,20 @@ public class Menu_module {
         return Integer.parseInt(sc.nextLine());
     }
 
-    public Object getObjectChoice(ArrayList<Object> list) {
+    public Object getObjectChoice(ArrayList<String> list) {
         int n = list.size();
         for (int i = 0; i < list.size(); i++) {
             System.out.println((i + 1) + "-" + list.get(i));
         }
         System.out.println("--------------------------");
         System.out.format("Please choose 1 to %d :", list.size());
-        int choiceNo = Integer.parseInt(sc.nextLine());
-        return (choiceNo > 0 && choiceNo <= n) ? list.get(choiceNo - 1) : null;
+        String choiceNo =sc.nextLine();
+        String pattern="\\d+";
+        if (choiceNo.matches(pattern)) {
+            return choiceNo;
+        }
+        else System.out.println("valid output");
+        return "";
     }
 //    public static void main(String[] args) {
 //        // Kiếm thử menu chứa các chuỗi trả về số int

@@ -30,44 +30,40 @@ public class main {
             strList.add("display");
             strList.add("exit");
             Menu_module Menu_module = new Menu_module();
-            int intChoice = Menu_module.getIntChoice(strList);
-            System.out.println("Your choose: " + intChoice);
-            switch (intChoice) {
-                case 1:
+            String Strchoice = (String) (Menu_module.getObjectChoice(strList));
+            System.out.println("Your choose: " + Strchoice);
+            switch (Strchoice) {
+                case "1" -> {
                     mng.addVehicle();
                     System.out.println("List is added");
-                    break;
-                case 2:
-                    mng.delete();
-                    break;
-                case 3:
+                }
+                case "2" -> mng.delete();
+                case "3" -> {
                     System.out.print("enter id:");
                     String checkid = sc.nextLine();
                     VehicleList check = new VehicleList();
-                    if (check.checkList(checkid)) {
+                    if (check.checkListIndex(checkid) != -1) {
                         System.out.println("Existed Vehicle");
                     } else {
                         System.out.println("No Vehicle Found!");
                     }
-                    break;
-                case 4:
+                }
+                case "4" -> {
                     System.out.print("enter id you want to update:");
                     String fixid = sc.nextLine();
                     mng.update(fixid);
-                case 5:
+                }
+                case "5" -> {
                     System.out.print("enter id:");
                     String searchid = sc.nextLine();
                     VehicleList search = new VehicleList();
                     search.Search(searchid);
-                    break;
-
-                case 6:
+                }
+                case "6" -> {
                     VehicleList dis = new VehicleList();
                     dis.Display();
-                    break;
-                default:
-                    cont = false;
-                    break;
+                }
+                default -> cont = false;
 
             }
         } while (cont == true);

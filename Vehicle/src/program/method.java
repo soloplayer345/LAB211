@@ -10,7 +10,7 @@ package program;
  */
 public interface method {
     void addVehicle();
-    boolean checkList(String id);
+    int checkListIndex(String id);
     void update(String id);
     void delete();
     void Search(String id);

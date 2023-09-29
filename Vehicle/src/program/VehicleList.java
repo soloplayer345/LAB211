@@ -57,22 +57,29 @@ public class VehicleList implements method {
     }
 
     @Override
-    public boolean checkList(String id) {
-        boolean a = false;
+    public int checkListIndex(String id) {
+        int index = -1;
         load();
         index = list.indexOf(list);
-        for (Vehicle vehicle : list) {
+        for (int i = 0; i < list.size(); i++) {
+            Vehicle vehicle = list.get(i);
             if (vehicle.getId() != null && vehicle.getId().equals(id)) {
-                a = true;
+                index = i;
             }
+
         }
-        return a;
+        return index;
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void update(String id) {
         load();
-        if (checkList(id)) {
+        int itemIndex = checkListIndex(id);
+        if (itemIndex != -1) {
             try {
                 System.out.print("enter id:");
                 String nid = sc.nextLine();
@@ -89,8 +96,7 @@ public class VehicleList implements method {
                 System.out.print("enter productYear:");
                 String productYear = sc.nextLine();
                 Vehicle v = new Vehicle(nid, name, color, price, brand, type, productYear);
-                index = list.indexOf(list);
-                list.set(index, v);
+                list.set(itemIndex, v);
             } catch (Exception e) {
                 e.printStackTrace();
             }
