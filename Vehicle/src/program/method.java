@@ -10,10 +10,10 @@ package program;
  */
 public interface method {
     void addVehicle();
-    void checkList(String id);
-    Vehicle update(Vehicle v);
+    boolean checkList(String id);
+    void update(String id);
     void delete();
-    Vehicle Search(Vehicle v);
+    void Search(String id);
     void Display();
     public void Save();
     void PrintAll();

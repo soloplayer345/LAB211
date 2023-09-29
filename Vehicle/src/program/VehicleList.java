@@ -57,40 +57,55 @@ public class VehicleList implements method {
     }
 
     @Override
-    public void checkList(String id) {
+    public boolean checkList(String id) {
         boolean a = false;
-
         load();
         index = list.indexOf(list);
         for (Vehicle vehicle : list) {
             if (vehicle.getId() != null && vehicle.getId().equals(id)) {
-                System.out.println(vehicle.toString());
                 a = true;
             }
         }
-        if (a == false) {
-            System.out.println("Not found!");
-        }
+        return a;
     }
 
     @Override
-    public Vehicle update(Vehicle v) {
+    public void update(String id) {
         load();
-        index = list.indexOf(list);
-        for (Vehicle vehicle : list) {
-            list.set(index, vehicle);
+        if (checkList(id)) {
+            try {
+                System.out.print("enter id:");
+                String nid = sc.nextLine();
+                System.out.print("enter name:");
+                String name = sc.nextLine();
+                System.out.print("enter color:");
+                String color = sc.nextLine();
+                System.out.print("enter price:");
+                String price = sc.nextLine();
+                System.out.print("enter brand:");
+                String brand = sc.nextLine();
+                System.out.print("enter type:");
+                String type = sc.nextLine();
+                System.out.print("enter productYear:");
+                String productYear = sc.nextLine();
+                Vehicle v = new Vehicle(nid, name, color, price, brand, type, productYear);
+                index = list.indexOf(list);
+                list.set(index, v);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Save();
+        } else {
+            System.out.println("Vehicle does not exist");
         }
-        Save();
-        return v;
     }
 
     @Override
     public void delete() {
         load();
-
         System.out.print("enter id:");
         String id = sc.nextLine();
-
         Vehicle deletingVehicle = null;
         for (Vehicle vehicle : list) {
             if (vehicle.getId().equalsIgnoreCase(id)) {
@@ -124,8 +139,19 @@ public class VehicleList implements method {
     }
 
     @Override
-    public Vehicle Search(Vehicle v) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void Search(String id) {
+        boolean a = false;
+        load();
+        index = list.indexOf(list);
+        for (Vehicle vehicle : list) {
+            if (vehicle.getId() != null && vehicle.getId().equals(id)) {
+                System.out.println(vehicle.toString());
+                a = true;
+            }
+        }
+        if (a == false) {
+            System.out.println("Not found!");
+        }
     }
 
     @Override
