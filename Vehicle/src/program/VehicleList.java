@@ -75,7 +75,13 @@ public class VehicleList implements method {
 
     @Override
     public Vehicle update(Vehicle v) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        load();
+        index = list.indexOf(list);
+        for (Vehicle vehicle : list) {
+            list.set(index, vehicle);
+        }
+        Save();
+        return v;
     }
 
     @Override
