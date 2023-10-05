@@ -20,7 +20,7 @@ import static program.main.sc;
  *
  * @author Admin
  */
-public class VehicleList implements method {
+public class VehicleList  {
 
     ArrayList<Vehicle> list = new ArrayList<>();
     private int index;
@@ -28,7 +28,6 @@ public class VehicleList implements method {
     public VehicleList() {
     }
 
-    @Override
     public void addVehicle() {
         System.out.print("enter id:");
         String id = sc.nextLine();
@@ -56,7 +55,6 @@ public class VehicleList implements method {
         }
     }
 
-    @Override
     public int checkListIndex(String id) {
         int index = -1;
         load();
@@ -75,7 +73,6 @@ public class VehicleList implements method {
      *
      * @param id
      */
-    @Override
     public void update(String id) {
         load();
         int itemIndex = checkListIndex(id);
@@ -107,7 +104,6 @@ public class VehicleList implements method {
         }
     }
 
-    @Override
     public void delete() {
         load();
         System.out.print("enter id:");
@@ -144,7 +140,6 @@ public class VehicleList implements method {
 
     }
 
-    @Override
     public void Search(String id) {
         boolean a = false;
         load();
@@ -160,12 +155,12 @@ public class VehicleList implements method {
         }
     }
 
-    @Override
+    
     public void Display() {
         PrintAll();
     }
 
-    @Override
+    
     public void Save() {
 
         try {
@@ -182,7 +177,7 @@ public class VehicleList implements method {
 
     }
 
-    @Override
+    
     public void PrintAll() {
         load();
         list.sort((Vehicle o1, Vehicle o2) -> o1.getId().compareTo(o2.getId()));
