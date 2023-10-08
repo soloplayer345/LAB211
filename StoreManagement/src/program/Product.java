@@ -113,4 +113,9 @@ public class Product {
         this.initialQuantity = initialQuantity;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s, %s, %s, %s, %s, %d, %d, %d, %d%n", prID,pId,name,productionDate,expirationDate,purchasePrice,salePrice,initialQuantity,curQuantity);
+    }
+
 }
