@@ -5,12 +5,14 @@
 package program;
 
 import java.util.Date;
+import lib.mytools;
+import static lib.mytools.generateCode;
 
 /**
  *
  * @author Admin
  */
-public class Product {
+public final class Product {
 
     private String prID;
     private String pId;
@@ -30,7 +32,7 @@ public class Product {
     }
 
     public Product(String prID, String pId, String name, Date productionDate, Date expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
-        this.prID = prID;
+        setPrID(prID);
         this.pId = pId;
         this.name = name;
         this.productionDate = productionDate;
@@ -79,8 +81,8 @@ public class Product {
 
     public void setProductionDate(Date productionDate) {
         this.productionDate = productionDate;
+//        this.productionDate=readDate(productionDate, "dd-MM-yyyy");
     }
-
     public Date getExpirationDate() {
         return expirationDate;
     }

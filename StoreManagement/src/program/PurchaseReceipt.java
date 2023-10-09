@@ -10,11 +10,9 @@ import java.util.Date;
  *
  * @author ADMIN
  */
-public class PurchaseReceipt extends Product{
+public class PurchaseReceipt {
 private Date date;
-    public PurchaseReceipt(String prID) {
-        super(prID);
-    }
+Product p;
 
     public Date getDate() {
         return date;
@@ -23,5 +21,10 @@ private Date date;
     public void setDate(Date date) {
         this.date = date;
     }
-    
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s", p.getPrID(),date);
+    }
+
 }
