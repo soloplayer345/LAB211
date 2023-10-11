@@ -137,7 +137,7 @@ public class mytools {
     public static Date readDateBefore(String promt, String dateFormat, Date markerDate){
         String input;
         Date d;
-        boolean ok = false;
+        boolean ok ;
         do {            
             System.out.print(promt+": ");
             input = sc.nextLine().trim();

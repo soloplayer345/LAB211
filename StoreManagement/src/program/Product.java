@@ -6,7 +6,7 @@ package program;
 
 import java.util.Date;
 import lib.mytools;
-import static lib.mytools.generateCode;
+import static lib.mytools.*;
 
 /**
  *
@@ -32,9 +32,9 @@ public final class Product {
     }
 
     public Product(String prID, String pId, String name, Date productionDate, Date expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
-        setPrID(prID);
+        this.prID = prID;
         this.pId = pId;
-        this.name = name;
+        setName(name);
         this.productionDate = productionDate;
         this.expirationDate = expirationDate;
         this.purchasePrice = purchasePrice;
@@ -72,7 +72,7 @@ public final class Product {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name=name;
     }
 
     public Date getProductionDate() {
