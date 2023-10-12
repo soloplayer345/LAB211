@@ -25,11 +25,11 @@ public class ProductManager {
             RandomAccessFile pro = new RandomAccessFile("products.txt", "rw");
             RandomAccessFile imr = new RandomAccessFile("ImReceipts.txt", "rw");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ProductManager.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
-
-    public ProductManager() {
+    
+    public void add(){
         
     }
 }

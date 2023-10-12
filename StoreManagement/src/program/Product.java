@@ -30,18 +30,7 @@ public final class Product {
     public Product(String prID) {
         this.prID = prID;
     }
-
-    public Product(String prID, String pId, String name, Date productionDate, Date expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
-        this.prID = prID;
-        this.pId = pId;
-        setName(name);
-        this.productionDate = productionDate;
-        this.expirationDate = expirationDate;
-        this.purchasePrice = purchasePrice;
-        this.salePrice = salePrice;
-        this.initialQuantity = initialQuantity;
-        this.curQuantity = curQuantity;
-    }
+ 
 
     public int getCurQuantity() {
         return curQuantity;
@@ -96,7 +85,10 @@ public final class Product {
     }
 
     public void setPurchasePrice(int purchasePrice) {
-        this.purchasePrice = purchasePrice;
+        if (purchasePrice>0) {
+            this.purchasePrice = purchasePrice;
+        }
+        else System.out.println("wrong price");
     }
 
     public int getSalePrice() {
@@ -112,7 +104,11 @@ public final class Product {
     }
 
     public void setInitialQuantity(int initialQuantity) {
-        this.initialQuantity = initialQuantity;
+        if (initialQuantity>0) {
+            this.initialQuantity = initialQuantity;
+        }
+        else System.out.println("wrong quntity");
+        
     }
 
     @Override
