@@ -5,7 +5,6 @@
 package program;
 
 import java.text.DateFormat;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static lib.mytools.*;
@@ -71,14 +70,9 @@ public final class Product {
     }
 
     public void setProductionDate(Date productionDate) {
-      
-        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        String dateFormat = formatter.format(productionDate);
-        System.out.println(productionDate);
-        this.productionDate=readDate(dateFormat, "dd-MM-yyyy");
-
-
+        this.productionDate = productionDate;
     }
+
     public Date getExpirationDate() {
         return expirationDate;
     }

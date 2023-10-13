@@ -19,7 +19,6 @@ public class main {
 
     public static void main(String[] args) {
         boolean cont = true;
-        //mng.Load();
         do {
             ArrayList<String> strList = new ArrayList();
             strList.add("add");

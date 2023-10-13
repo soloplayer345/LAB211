@@ -133,7 +133,7 @@ public class mytools {
         } while (!ok);
         return d;
     }
-    //Nhập ngày tháng trước một ngày cho trước
+    //Nhập ngày tháng trước một ngày cho sau
     public static Date readDateBefore(String promt, String dateFormat, Date markerDate){
         String input;
         Date d;
