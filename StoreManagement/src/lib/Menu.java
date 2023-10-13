@@ -28,10 +28,12 @@ public class Menu<T> {
             System.out.println((i+1)+"-"+list.get(i));
         }
         System.out.println("--------------------------");
-        System.out.format("Please choose 1 to %d :",list.size());
-        int choiceNo = Integer.parseInt(sc.nextLine());
-        return (choiceNo >0 && choiceNo<=n) ? list.get(choiceNo-1): null;
+        System.out.format("Please choose 1 to %d :",list.size());     
+        String pattern="\\d+";
+        String Choice = sc.nextLine();     
+        return (Choice.matches(pattern) && Integer.parseInt(Choice)>0 && Integer.parseInt(Choice)<=n ) ? list.get( Integer.parseInt(Choice)- 1) : null;
     }
+    
 //    public static void main(String[] args) {
 //        // Kiếm thử menu chứa các chuỗi trả về số int
 //        ArrayList<String> strList = new ArrayList();
