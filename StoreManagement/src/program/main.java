@@ -5,6 +5,7 @@
 package program;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import lib.Menu;
 
@@ -19,31 +20,25 @@ public class main {
     public static void main(String[] args) {
         boolean cont = true;
         do {
-            ArrayList<String> strList = new ArrayList();
-            strList.add("add");
-            strList.add("delete");
-            strList.add("check");
-            strList.add("update");
-            strList.add("search");
-            strList.add("display");
-            strList.add("exit");
+            String[] menu = {"add", "delete", "check", "update", "search", "display", "exit"};
+            ArrayList<String> strList = new ArrayList<>(Arrays.asList(menu));
             Menu Menu_module = new Menu();
             String Strchoice = (String) (Menu_module.getObjectChoice(strList));
             if (Strchoice == null) {
-                Strchoice="";
+                Strchoice = "";
             }
             System.out.println("Your choose: " + Strchoice);
             switch (Strchoice) {
-                
+
                 case "exit" -> {
                     cont = false;
-            
+
                 }
-                default->{
+                default -> {
                     cont = true;
                     System.out.println("wrong choice");
                 }
-                    
+
             }
         } while (cont == true);
     }

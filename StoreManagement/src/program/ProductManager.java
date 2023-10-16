@@ -9,6 +9,7 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static program.main.sc;
 
 /**
  *
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
  */
 public class ProductManager {
 
+    Product p;
     ArrayList<Product> list = new ArrayList<>();
     private int index;
 
@@ -28,8 +30,15 @@ public class ProductManager {
             ex.printStackTrace();
         }
     }
-    
-    public void add(){
-        
+
+    public void add() {
+        System.out.print("nhap ten hang:");
+        String name = sc.nextLine();
+        System.out.print("nhap gia mua:");
+        int purchasePrice= sc.nextInt();
+        System.out.print("nhap gia ban:");
+        int salePrice= sc.nextInt();
+        System.out.println("nhap so luong ban dau");
+        int initialQuantity = sc.nextInt();
     }
 }
