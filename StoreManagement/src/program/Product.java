@@ -32,16 +32,28 @@ public final class Product {
         this.prID = prID;
     }
 
+//    public Product(String prID, String pId, String name, Date productionDate, Date expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
+//        setPrID(prID);
+//        setpId(pId);
+//        setName(name);
+//        setProductionDate(productionDate);
+//        setExpirationDate(expirationDate);
+//        setPurchasePrice(purchasePrice);
+//        setSalePrice(salePrice);
+//        setInitialQuantity(initialQuantity);
+//        setCurQuantity(curQuantity);
+//    }
+
     public Product(String prID, String pId, String name, Date productionDate, Date expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
-        setPrID(prID);
-        setpId(pId);
-        setName(name);
-        setProductionDate(productionDate);
-        setExpirationDate(expirationDate);
-        setPurchasePrice(purchasePrice);
-        setSalePrice(salePrice);
-        setInitialQuantity(initialQuantity);
-        setCurQuantity(curQuantity);
+        this.prID = prID;
+        this.pId = pId;
+        this.name = name;
+        this.productionDate = productionDate;
+        this.expirationDate = expirationDate;
+        this.purchasePrice = purchasePrice;
+        this.salePrice = salePrice;
+        this.initialQuantity = initialQuantity;
+        this.curQuantity = curQuantity;
     }
  
 

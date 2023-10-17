@@ -6,7 +6,9 @@ package program;
 
 import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static program.main.sc;
@@ -32,6 +34,7 @@ public class ProductManager {
     }
 
     public void add() {
+        Date productionDate = Date.from(Instant.now());
         System.out.print("nhap ten hang:");
         String name = sc.nextLine();
         System.out.print("nhap gia mua:");
@@ -40,5 +43,16 @@ public class ProductManager {
         int salePrice= sc.nextInt();
         System.out.println("nhap so luong ban dau");
         int initialQuantity = sc.nextInt();
+        System.out.println("nhap so luong ton kho");
+        int curQuantity= sc.nextInt();
+        p=new Product("", "", name, productionDate, productionDate, purchasePrice, salePrice, initialQuantity, curQuantity);
+        index=list.indexOf(p);
+        if (index == -1) {
+            list.add(p);
+            
+            System.out.println("Added!");
+        } else {
+            System.out.println("Dupplicated!");
+        }
     }
 }
