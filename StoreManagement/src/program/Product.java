@@ -13,7 +13,7 @@ import static lib.mytools.*;
  *
  * @author Admin
  */
-public final class Product {
+public  class Product {
 
     private String prID;
     private String pId;

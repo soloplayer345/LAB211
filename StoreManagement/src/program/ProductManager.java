@@ -22,6 +22,7 @@ public class ProductManager {
     Product p;
     ArrayList<Product> list = new ArrayList<>();
     private int index;
+    RandomAccessFile f;
 
     public void CheckFileists() {
         try {
@@ -35,21 +36,20 @@ public class ProductManager {
 
     public void add() {
         Date productionDate = Date.from(Instant.now());
-        System.out.print("nhap ten hang:");
+        System.out.print("nhap ten hang: ");
         String name = sc.nextLine();
-        System.out.print("nhap gia mua:");
+        System.out.print("nhap gia mua: ");
         int purchasePrice= sc.nextInt();
-        System.out.print("nhap gia ban:");
+        System.out.print("nhap gia ban: ");
         int salePrice= sc.nextInt();
-        System.out.println("nhap so luong ban dau");
+        System.out.print("nhap so luong ban dau: ");
         int initialQuantity = sc.nextInt();
-        System.out.println("nhap so luong ton kho");
+        System.out.print("nhap so luong ton kho: ");
         int curQuantity= sc.nextInt();
         p=new Product("", "", name, productionDate, productionDate, purchasePrice, salePrice, initialQuantity, curQuantity);
         index=list.indexOf(p);
         if (index == -1) {
-            list.add(p);
-            
+            list.add(p);          
             System.out.println("Added!");
         } else {
             System.out.println("Dupplicated!");
