@@ -4,13 +4,13 @@
  */
 package program;
 
-import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static lib.mytools.*;
 import static program.main.sc;
 
 /**
@@ -34,18 +34,21 @@ public class ProductManager {
     }
 
     public void add() {
+        int i=0;
+        String pID=generateCode("IM", 8, i);
         Date productionDate = Date.from(Instant.now());
+        System.out.println(productionDate);
         System.out.print("nhap ten hang:");
         String name = sc.nextLine();
         System.out.print("nhap gia mua:");
         int purchasePrice= sc.nextInt();
         System.out.print("nhap gia ban:");
         int salePrice= sc.nextInt();
-        System.out.println("nhap so luong ban dau");
+        System.out.print("nhap so luong ban dau");
         int initialQuantity = sc.nextInt();
-        System.out.println("nhap so luong ton kho");
+        System.out.print("nhap so luong ton kho");
         int curQuantity= sc.nextInt();
-        p=new Product("", "", name, productionDate, productionDate, purchasePrice, salePrice, initialQuantity, curQuantity);
+//        p=new Product("","", index, curQuantity, "", name, productionDate, productionDate, purchasePrice, salePrice, initialQuantity, curQuantity);
         index=list.indexOf(p);
         if (index == -1) {
             list.add(p);
