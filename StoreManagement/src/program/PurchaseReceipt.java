@@ -13,9 +13,12 @@ import java.util.Date;
 public class PurchaseReceipt {
 private Date date;
 Product p;
+String prID;
 
-    public Date getDate() {
-        return date;
+    public PurchaseReceipt(Date date, String prID) {
+        this.date = date;
+        this.prID = prID;
+        p.setPrID(prID);
     }
 
     public void setDate(Date date) {

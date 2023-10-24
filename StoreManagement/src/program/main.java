@@ -20,7 +20,7 @@ public class main {
     public static void main(String[] args) {
         boolean cont = true;
         do {
-            String[] menu = {"add", "delete", "check", "update", "search", "display", "exit"};
+            String[] menu = {"nhap hang", "delete", "check", "update", "search", "display", "exit"};
             ArrayList<String> strList = new ArrayList<>(Arrays.asList(menu));
             Menu Menu_module = new Menu();
             String Strchoice = (String) (Menu_module.getObjectChoice(strList));
@@ -29,7 +29,9 @@ public class main {
             }
             System.out.println("Your choose: " + Strchoice);
             switch (Strchoice) {
-
+                case "nhap hang" -> {
+                    
+                }
                 case "exit" -> {
                     cont = false;
 
