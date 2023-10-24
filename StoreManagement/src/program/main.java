@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import lib.Menu;
+import java.io.*;
 
 /**
  *
  * @author Admin
  */
 public class main {
+    ProductManager pm;
 
     public static final Scanner sc = new Scanner(System.in);
 
@@ -30,6 +32,7 @@ public class main {
             System.out.println("Your choose: " + Strchoice);
             switch (Strchoice) {
                 case "nhap hang" -> {
+                    RandomAccessFile f;
                     
                 }
                 case "exit" -> {

@@ -1,1 +1,6 @@
-
+plan lm ham add: 
+load file 
+-> nhay bien prid + update date de ap vo prodate 
+-> xuat vao file ImReceipts.txt + hoi nhap bai nhieu hang
+-> dua vao so hang nhap tao loop + nhảy biến pID + nhập dữ liệu hàng
+-> lưu vào product.txt
