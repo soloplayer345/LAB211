@@ -27,6 +27,7 @@ public class test {
 //        p.setProductionDate(readDate(normalizeDateStr(d), f));
 //        System.out.println(p.getProductionDate());
         Date productionDate = Date.from(Instant.now());
+//        Date expDate= productionDate.after();
         String strDate= formatter.format(productionDate);
         p.setProductionDate(readDate(strDate, f));
         System.out.println(productionDate);
