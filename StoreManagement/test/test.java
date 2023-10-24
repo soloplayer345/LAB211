@@ -17,19 +17,20 @@ import program.ProductManager;
 public class test {
 
     public static void main(String[] args) {
-//        ProductManager pm= new ProductManager();
+        ProductManager pm= new ProductManager();
         Product p = new Product();
-//        pm.add();
+        pm.add();
+        pm.PrintAll();
 //        System.out.println(p.getName());
 //        String d="13--10-2023";
-        String f="dd-MM-yy";
-        SimpleDateFormat formatter = new SimpleDateFormat(f);
+//        String f="dd-MM-yy";
+//        SimpleDateFormat formatter = new SimpleDateFormat(f);
 //        p.setProductionDate(readDate(normalizeDateStr(d), f));
 //        System.out.println(p.getProductionDate());
-        Date productionDate = Date.from(Instant.now());
+//        Date productionDate = Date.from(Instant.now());
 //        Date expDate= productionDate.after();
-        String strDate= formatter.format(productionDate);
-        p.setProductionDate(readDate(strDate, f));
-        System.out.println(productionDate);
+//        String strDate= formatter.format(productionDate);
+//        p.setProductionDate(readDate(strDate, f));
+//        System.out.println(productionDate);
     }
 }

@@ -35,9 +35,8 @@ public class ProductManager {
 
     public void add() {
         int i=0;
-        String pID=generateCode("IM", 8, i);
-        Date productionDate = Date.from(Instant.now());
-        System.out.println(productionDate);
+//        String pID=generateCode("IM", 8, i);
+//        Date productionDate = Date.from(Instant.now());
         System.out.print("nhap ten hang:");
         String name = sc.nextLine();
         System.out.print("nhap gia mua:");
@@ -48,7 +47,7 @@ public class ProductManager {
         int initialQuantity = sc.nextInt();
         System.out.print("nhap so luong ton kho");
         int curQuantity= sc.nextInt();
-//        p=new Product("","", index, curQuantity, "", name, productionDate, productionDate, purchasePrice, salePrice, initialQuantity, curQuantity);
+        p=new Product("", "", name, null, null, purchasePrice, salePrice, initialQuantity, curQuantity);
         index=list.indexOf(p);
         if (index == -1) {
             list.add(p);
@@ -56,6 +55,11 @@ public class ProductManager {
             System.out.println("Added!");
         } else {
             System.out.println("Dupplicated!");
+        }
+    }
+     public void PrintAll() {
+        for (Product vhc : list) {
+            System.out.println(vhc);
         }
     }
 }
