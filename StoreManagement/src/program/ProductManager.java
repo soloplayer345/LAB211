@@ -20,44 +20,51 @@ import static program.main.sc;
 public class ProductManager {
 
     Product p;
+    PurchaseReceipt pr;
     ArrayList<Product> list = new ArrayList<>();
     private int index;
 
-    public void CheckFileists() {
+
+
+    public void addImReceipt(int i) {
         try {
-            RandomAccessFile imp = new RandomAccessFile("imports.txt", "rw");
-            RandomAccessFile pro = new RandomAccessFile("products.txt", "rw");
-            RandomAccessFile imr = new RandomAccessFile("ImReceipts.txt", "rw");
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
+            String fname = "ImReceipts.txt";
+            RandomAccessFile f = new RandomAccessFile(fname, "rw");
+            String prID = generateCode("IM", 6, i);
+            Date DateIm = Date.from(Instant.now());
+            pr = new PurchaseReceipt(prID, DateIm);
+            f.writeChars(prID);
+        } catch (IOException ex) {
+            Logger.getLogger(ProductManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void add() {
-        int i=0;
+        int i = 0;
 //        String pID=generateCode("IM", 8, i);
 //        Date productionDate = Date.from(Instant.now());
         System.out.print("nhap ten hang:");
         String name = sc.nextLine();
         System.out.print("nhap gia mua:");
-        int purchasePrice= sc.nextInt();
+        int purchasePrice = sc.nextInt();
         System.out.print("nhap gia ban:");
-        int salePrice= sc.nextInt();
+        int salePrice = sc.nextInt();
         System.out.print("nhap so luong ban dau");
         int initialQuantity = sc.nextInt();
         System.out.print("nhap so luong ton kho");
-        int curQuantity= sc.nextInt();
-        p=new Product("", "", name, null, null, purchasePrice, salePrice, initialQuantity, curQuantity);
-        index=list.indexOf(p);
+        int curQuantity = sc.nextInt();
+        p = new Product("", "", name, null, null, purchasePrice, salePrice, initialQuantity, curQuantity);
+        index = list.indexOf(p);
         if (index == -1) {
             list.add(p);
-            
+
             System.out.println("Added!");
         } else {
             System.out.println("Dupplicated!");
         }
     }
-     public void PrintAll() {
+
+    public void PrintAll() {
         for (Product vhc : list) {
             System.out.println(vhc);
         }

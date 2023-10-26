@@ -32,7 +32,6 @@ public class main {
             System.out.println("Your choose: " + Strchoice);
             switch (Strchoice) {
                 case "nhap hang" -> {
-                    RandomAccessFile f;
                     
                 }
                 case "exit" -> {
