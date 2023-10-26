@@ -62,7 +62,7 @@ public class mytools {
          * @param dateFormat : chosen date format
          * @return date string in the given format
          */
-    public String toString(Date date, String dateFormat) {
+    public static String DatetoString(Date date, String dateFormat) {
         if (date==null) return "";
         DateFormat formater = new SimpleDateFormat(dateFormat);
         return formater.format(date);
@@ -133,7 +133,7 @@ public class mytools {
         } while (!ok);
         return d;
     }
-    //Nhập ngày tháng trước một ngày cho sau
+    //Nhập ngày tháng trước một ngày cho sau 
     public static Date readDateBefore(String promt, String dateFormat, Date markerDate){
         String input;
         Date d;

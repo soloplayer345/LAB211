@@ -18,7 +18,6 @@ String prID;
     public PurchaseReceipt( String prID, Date date) {
         this.date = date;
         this.prID = prID;
-        p.setPrID(prID);
     }
 
     public void setDate(Date date) {

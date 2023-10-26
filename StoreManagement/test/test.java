@@ -19,8 +19,10 @@ public class test {
     public static void main(String[] args) {
         ProductManager pm= new ProductManager();
         Product p = new Product();
-        pm.add();
+        pm.addImReceipt(0);
+        pm.addProduct(0);
         pm.PrintAll();
+        pm.saveProduct();
 //        System.out.println(p.getName());
 //        String d="13--10-2023";
 //        String f="dd-MM-yy";
@@ -32,5 +34,7 @@ public class test {
 //        String strDate= formatter.format(productionDate);
 //        p.setProductionDate(readDate(strDate, f));
 //        System.out.println(productionDate);
+// String f="dd-MM-yy";
+//        this.expirationDate = readDateAfter(expirationDate, f, productionDate);
     }
 }

@@ -18,8 +18,8 @@ public final class Product {
     private String prID;
     private String pId;
     private String name;
-    private Date productionDate;
-    private Date expirationDate;
+    private String productionDate;
+    private String expirationDate;
     private int purchasePrice;
     private int salePrice;
     private int initialQuantity;
@@ -32,19 +32,7 @@ public final class Product {
         this.prID = prID;
     }
 
-//    public Product(String prID, String pId, String name, Date productionDate, Date expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
-//        setPrID(prID);
-//        setpId(pId);
-//        setName(name);
-//        setProductionDate(productionDate);
-//        setExpirationDate(expirationDate);
-//        setPurchasePrice(purchasePrice);
-//        setSalePrice(salePrice);
-//        setInitialQuantity(initialQuantity);
-//        setCurQuantity(curQuantity);
-//    }
-
-    public Product(String prID, String pId, String name, Date productionDate, Date expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
+    public Product(String prID, String pId, String name, String productionDate, String expirationDate, int purchasePrice, int salePrice, int initialQuantity, int curQuantity) {
         this.prID = prID;
         this.pId = pId;
         this.name = name;
@@ -89,19 +77,19 @@ public final class Product {
         this.name=name;
     }
 
-    public Date getProductionDate() {
+    public String getProductionDate() {
         return productionDate;
     }
 
-    public void setProductionDate(Date productionDate) {
+    public void setProductionDate(String productionDate) {
         this.productionDate = productionDate;
     }
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
 
