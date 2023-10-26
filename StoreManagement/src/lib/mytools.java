@@ -1,12 +1,18 @@
 package lib;
 
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.text.DateFormat;        //Lớp mô tả ngày tháng
 import java.text.ParseException;    //Lớp giúp dịnh dạnh ngày tháng
 import java.text.SimpleDateFormat;  //Lớp giúp định dạng ngày tháng
+import java.util.ArrayList;
 import java.util.Calendar;          //Lớp mô tả lỗi khi phân tích string
 import java.util.Date;              //Lớp mô tả cho lịch trình nói chung
 import java.util.GregorianCalendar; //Lớp mô tả cho dương lịch ngày nay
 import java.util.Scanner;           //Lớp nhập dữ liệu
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import program.ProductManager;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -155,5 +161,16 @@ public class mytools {
         String formatStr = "%0"+length+"d";//->%07d
         return prefix + String.format(formatStr, curNumber);    
     }
+    public static <T> void saveArrayListToFile(ArrayList<T> list, String fileName) {
+        try {
+            RandomAccessFile file = new RandomAccessFile(fileName, "rw");
+            for (T item : list) {
+                file.writeBytes(item.toString() + System.lineSeparator());
+            }
+            file.close();
+        } catch (IOException ex) {
+            Logger.getLogger(mytools.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 }
 

@@ -41,7 +41,7 @@ public class ProductManager {
             } else {
                 System.out.println("Dupplicated!");
             }
-           
+
             f.writeChars(prID);
         } catch (IOException ex) {
             Logger.getLogger(ProductManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,7 +63,7 @@ public class ProductManager {
 
             file.close();
             String maxStringId = findMaxStringId(arrayList);
-            return maxStringId;
+            return maxStringId.trim();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,13 +71,9 @@ public class ProductManager {
     }
 
     public void addProduct(int i) {
-        try {
-            String prID=readImpReceipt();
+            String prID = readImpReceipt();
             String pID = generateCode("IM", 7, i);
-            String impFile = "ImReceipts.txt";
-            RandomAccessFile file = new RandomAccessFile(impFile, "r");;
-            System.out.print("nhap ten hang:");
-            String name = sc.nextLine();
+            String name=readStr("nhap ten hang", ".");
             String Datepro = DatetoString(Date.from(Instant.now()), "dd-MM-yy");
             String DateExp = DatetoString(readDateAfter("nhap ngay het hang", "dd-MM-yy", parseDate(Datepro, "dd-MM-yy")), "dd-MM-yy");
             System.out.print("nhap gia mua:");
@@ -97,23 +93,11 @@ public class ProductManager {
             } else {
                 System.out.println("Dupplicated!");
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ProductManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
-    public void saveProduct() {
-        try {
-             String fname="products.txt";
-            RandomAccessFile f = new RandomAccessFile(fname, "rw");
-            for (Product product : list) {
-                f.writeBytes(product + System.lineSeparator());
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ProductManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ProductManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void saveFile() {
+        saveArrayListToFile(list, "Products.txt");
+        saveArrayListToFile(prlist, "ImReceipts.txt");
     }
 
     public void PrintAll() {
