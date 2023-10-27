@@ -5,7 +5,7 @@
 package program;
 
 import java.util.Date;
-
+import static lib.mytools.*;
 /**
  *
  * @author ADMIN
@@ -26,7 +26,8 @@ String prID;
 
     @Override
     public String toString() {
-        return String.format("%s, %s", p.getPrID(),date);
+        
+        return String.format("%s, %s", prID,DatetoString(date, "dd-MM-yy"));
     }
 
 }

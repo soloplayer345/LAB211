@@ -5,6 +5,7 @@
 package program;
 
 import java.util.Date;
+import static lib.mytools.*;
 
 /**
  *
@@ -16,11 +17,6 @@ public class BillOfSale {
 
     public BillOfSale() {
     }
-
-    public BillOfSale(String bsID) {
-        this.bsID = bsID;
-    }
-
     public BillOfSale(String bsID, Date bsDate) {
         this.bsID = bsID;
         this.bsDate = bsDate;
@@ -40,6 +36,11 @@ public class BillOfSale {
 
     public void setBsID(String bsID) {
         this.bsID = bsID;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s", bsID,DatetoString(bsDate, "dd-MM-yy"));
     }
     
 }
