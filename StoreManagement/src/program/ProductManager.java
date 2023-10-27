@@ -8,7 +8,6 @@ import java.io.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static lib.mytools.*;
@@ -42,36 +41,14 @@ public class ProductManager {
                 System.out.println("Dupplicated!");
             }
 
-            f.writeChars(prID);
+            f.writeBytes(prID);
         } catch (IOException ex) {
             Logger.getLogger(ProductManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public String readImpReceipt() {
-        String fileName = "ImReceipts.txt"; // The file containing the ArrayList
-
-        try {
-            RandomAccessFile file = new RandomAccessFile(fileName, "r");
-            String line;
-            ArrayList<String> arrayList = new ArrayList<>();
-
-            // Read each line from the file and add it to the ArrayList
-            while ((line = file.readLine()) != null) {
-                arrayList.add(line);
-            }
-
-            file.close();
-            String maxStringId = findMaxStringId(arrayList);
-            return maxStringId.trim();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public void addProduct(int i) {
-            String prID = readImpReceipt();
+            String prID = updateIDFormFile("ImReceipts.txt");
             String pID = generateCode("IM", 7, i);
             String name=readStr("nhap ten hang", ".");
             String Datepro = DatetoString(Date.from(Instant.now()), "dd-MM-yy");
@@ -105,16 +82,5 @@ public class ProductManager {
             System.out.println(vhc);
         }
     }
-
-    private static String findMaxStringId(List<String> arrayList) {
-        String maxStringId = null;
-
-        for (String item : arrayList) {
-            if (maxStringId == null || item.compareTo(maxStringId) > 0) {
-                maxStringId = item;
-            }
-        }
-
-        return maxStringId;
-    }
+    
 }

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import lib.Menu;
-import java.io.*;
 
 /**
  *
@@ -50,6 +49,9 @@ public class main {
                         pm.addProduct(imProduct);
                     }
                 }
+                case "Xem kho hàng" -> {
+                    pm.PrintAll();
+                }
                 case "Ghi dữ liệu lên file" -> {
                     pm.saveFile();
                 }
@@ -63,6 +65,6 @@ public class main {
                 }
 
             }
-        } while (cont == true);
+        } while (cont);
     }
 }
