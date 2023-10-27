@@ -21,8 +21,8 @@ public class test {
         Product p = new Product();
         pm.addImReceipt(0);
         pm.addProduct(0);
+        pm.saveFile();
         pm.PrintAll();
-        pm.saveProduct();
 //        System.out.println(p.getName());
 //        String d="13--10-2023";
 //        String f="dd-MM-yy";
