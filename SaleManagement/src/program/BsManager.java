@@ -16,7 +16,6 @@ import static lib.mytools.*;
  */
 public class BsManager {
 
-    Product p;
     BsProduct bs;
     BillOfSale boS;
     private int index;

@@ -157,7 +157,6 @@ public class ProductManager {
                 int initialQuantity = sc.nextInt();
                 productList.get(i).setInitialQuantity(initialQuantity);
                 productList.get(i).setCurQuantity(initialQuantity);
-                //productList.set(i, productList.get(i));
                 saveArrayListToFile(productList, "Products.txt");
             }
         }
